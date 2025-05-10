@@ -30,36 +30,14 @@
         const box1 = document.getElementById("box1");
         const box2 = document.getElementById("box2");
 
-        // Step 1: Move them closer to show comparison
-        box1.setAttribute("animation__move1", {
-          property: "position",
-          to: "0 1 -3",
-          dur: 1000,
-          easing: "easeInOutQuad"
-        });
+        // Move closer to simulate comparison
+        box1.setAttribute("animation__move1", "property: position; to: 0 1 -3; dur: 1000; easing: easeInOutQuad");
+        box2.setAttribute("animation__move2", "property: position; to: 0.5 1 -3; dur: 1000; easing: easeInOutQuad");
 
-        box2.setAttribute("animation__move2", {
-          property: "position",
-          to: "0.5 1 -3",
-          dur: 1000,
-          easing: "easeInOutQuad"
-        });
-
-        // Step 2: Swap positions after 1.5 seconds
+        // Then swap positions
         setTimeout(() => {
-          box1.setAttribute("animation__swap1", {
-            property: "position",
-            to: "1 1 -3",
-            dur: 1000,
-            easing: "easeInOutQuad"
-          });
-
-          box2.setAttribute("animation__swap2", {
-            property: "position",
-            to: "-1 1 -3",
-            dur: 1000,
-            easing: "easeInOutQuad"
-          });
+          box1.setAttribute("animation__swap1", "property: position; to: 1 1 -3; dur: 1000; easing: easeInOutQuad");
+          box2.setAttribute("animation__swap2", "property: position; to: -1 1 -3; dur: 1000; easing: easeInOutQuad");
         }, 1500);
       }
     </script>
