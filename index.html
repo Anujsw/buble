@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ARgorithm - Bubble Sort Demo</title>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <h1 style="text-align:center;">🔁 Bubble Sort Visualizer</h1>
+    <div style="text-align:center;">
+      <button onclick="startSort()">▶ Start Sort</button>
+    </div>
+
+    <a-scene>
+      <!-- Camera -->
+      <a-entity camera position="0 1.6 4" look-controls></a-entity>
+
+      <!-- Boxes representing array values -->
+      <a-box id="box1" position="-1 1 -3" color="red" depth="0.5" height="1" width="1">
+        <a-text value="5" position="0 1 0" align="center" color="#FFF"></a-text>
+      </a-box>
+
+      <a-box id="box2" position="1 1 -3" color="blue" depth="0.5" height="1" width="1">
+        <a-text value="3" position="0 1 0" align="center" color="#FFF"></a-text>
+      </a-box>
+    </a-scene>
+
+    <script>
+      function startSort() {
+        const box1 = document.getElementById("box1");
+        const box2 = document.getElementById("box2");
+
+        // Step 1: Move them closer to show comparison
+        box1.setAttribute("animation__move1", {
+          property: "position",
+          to: "0 1 -3",
+          dur: 1000,
+          easing: "easeInOutQuad"
+        });
+
+        box2.setAttribute("animation__move2", {
+          property: "position",
+          to: "0.5 1 -3",
+          dur: 1000,
+          easing: "easeInOutQuad"
+        });
+
+        // Step 2: Swap positions after 1.5 seconds
+        setTimeout(() => {
+          box1.setAttribute("animation__swap1", {
+            property: "position",
+            to: "1 1 -3",
+            dur: 1000,
+            easing: "easeInOutQuad"
+          });
+
+          box2.setAttribute("animation__swap2", {
+            property: "position",
+            to: "-1 1 -3",
+            dur: 1000,
+            easing: "easeInOutQuad"
+          });
+        }, 1500);
+      }
+    </script>
+  </body>
+</html>
